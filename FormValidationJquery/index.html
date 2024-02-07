@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation system in Jquery</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/cesiumjs/1.78/Build/Cesium/Cesium.js"></script>
+  <style>
+    body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 130%;
+
+}
+.wrapper{
+    width: 550px;
+    margin:0 auto;
+
+}
+label{
+    width: 220px;
+    float:left;
+    position: relative;
+    top: 12px;
+}
+input{
+    width: 320px;
+    font-size: 25px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 5px 12px 5px;
+
+}
+.formElement{
+    margin-bottom: 10px;
+}
+#submitButton{
+    width: 130px;
+    margin-left:200px;
+}
+#sucess{
+    color: green;
+    font-size: 90%;
+
+}
+#errors{
+    color: red;
+    font-size: 90%;
+}
+  </style>
+</head>
+<body>
+    <div id="errors"></div>
+    <div id="success"></div>
+    <div class="wrapper">
+        <div class="formElement">
+            <label for="Email">Email</label>
+            <input type="text" id="Email" name="Email">
+        </div>
+        <div class="formElement">
+            <label for="phoneNo">Phone No.</label>
+            <input type="text" name="phoneNo" id="phoneNo">
+        </div>
+        <div class="formElement">
+            <label for="password">password</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <div class="formElement">
+            <label for="confirmPassword">confirm password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword">
+        </div>
+        <input type="submit" name="submitButton" id="submitButton">
+    </div>
+    <script>
+        var errormsg = "";
+        var misingField = "";
+        function isEmail(email){
+            var regex = /^([abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.+-]+\@(([abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.+-])+\.)+([abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.+-]{2,4}))+$/;
+            return regex.test(email);
+        }
+        $("#submitButton").click(function(){
+            if($("#email").val()==""){
+                missingfield+="<p>email is not filled</p>";
+            }
+        })
+    </script>
+</body>
+</html>
