@@ -82,6 +82,26 @@ input{
             if($("#email").val()==""){
                 missingfield+="<p>email is not filled</p>";
             }
+            if($("#phoneNo").val()==""){
+                missingfield+="<p>phone number is not filled</p>"
+            }
+            if($("#password").val()==""){
+                missingfield+="<p>password is not filled</p>"
+            }
+            if(isEmail($("#email").val()==false)){
+                errormsg+="<p>email id is not valid</p>"
+            }
+            if($.isNumeric($("#phoneNo").val()==false)){
+                errormsg+="<p>phone number is not valid</p>"
+            }
+            if($('#password').val()!=$('#confirmPassword').val()){
+                errormsg+="<p>password doesnot match</p>"
+            }
+            if(errormsg==""){
+                $('#success').html('you are registered');
+            }else{
+                $('#errors').html(errormsg+misingField);
+            }
         })
     </script>
 </body>
